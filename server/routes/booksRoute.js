@@ -34,7 +34,7 @@ router.delete("/delete-book/:id", authMiddleware, async (req, res) => {
 });
 
 // get all books
-router.get("/get-all-books", authMiddleware, async (req, res) => {
+router.get("/get-all-books", async (req, res) => {
   try {
     const books = await Book.find().sort({ createdAt: -1 });
     return res.send({ success: true, data: books });
@@ -43,7 +43,7 @@ router.get("/get-all-books", authMiddleware, async (req, res) => {
   }
 });
 // get a book by id
-router.get("/get-book-by-id/:id", authMiddleware, async (req, res) => {
+router.get("/get-book-by-id/:id", async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
     return res.send({ success: true, data: book });

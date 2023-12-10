@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tabs } from "antd";
 import Books from "./Books";
 import Users from "./Users";
@@ -10,6 +10,9 @@ const TabPane = Tabs.TabPane;
 
 function Profile() {
   const { user } = useSelector((state) => state.users);
+  if (!user) {
+    console.log('**@@@ no user in Profile');
+  }
   const role = user.role;
 
   return (
@@ -20,9 +23,9 @@ function Profile() {
         </TabPane>
 
         {role === "patron" && (
-             <TabPane tab="Books Borrowed" key="2">
-             <BorrowedBooks />
-           </TabPane>
+          <TabPane tab="Books Borrowed" key="2">
+            <BorrowedBooks />
+          </TabPane>
         )}
 
         {role !== "patron" && (

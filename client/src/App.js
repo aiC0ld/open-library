@@ -9,6 +9,7 @@ import "./stylesheets/sizes.css";
 import "./stylesheets/custom-components.css";
 import "./stylesheets/form-elements.css";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedHomeRoute from "./components/ProtectedHomeRoute";
 import Loader from "./components/Loader";
 import { useSelector } from "react-redux";
 import Profile from "./pages/Profile";
@@ -25,17 +26,17 @@ function App() {
           <Route
             path="/"
             element={
-              <ProtectedRoute>
+              <ProtectedHomeRoute>
                 <Home />
-              </ProtectedRoute>
+              </ProtectedHomeRoute>
             }
           />
           <Route
             path="/book/:id"
             element={
-              <ProtectedRoute>
+              <ProtectedHomeRoute>
                 <BookDescription />
-              </ProtectedRoute>
+              </ProtectedHomeRoute>
             }
           />
           <Route
@@ -46,10 +47,8 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/login" element=
-            {<Login />} />
-          <Route path="/register" element={
-            <Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </div>

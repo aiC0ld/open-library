@@ -6,7 +6,7 @@ import { GetLoggedInUserDetails } from "../apicalls/users";
 import { HideLoading, ShowLoading } from "../redux/loadersSlice";
 import { SetUser } from "../redux/usersSlice";
 
-function ProtectedRoute({ children }) {
+function ProtectedHomeRoute({ children }) {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.users);
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ function ProtectedRoute({ children }) {
 
   return (
     <div>
-      {user && (
+      {(
         <div className="p-1">
           <div className="header p-2 bg-primary flex justify-between rounded items-center">
             <h1 className="text-2xl text-white font-bold cursor-pointer"
@@ -88,4 +88,4 @@ function ProtectedRoute({ children }) {
   );
 }
 
-export default ProtectedRoute;
+export default ProtectedHomeRoute;

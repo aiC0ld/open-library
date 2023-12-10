@@ -110,8 +110,6 @@ function IssueForm({
     }
   }, [open]);
 
-  console.log(type)
-
   return (
     <Modal
       title=""
